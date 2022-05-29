@@ -1,0 +1,137 @@
+.prose .anchor {
+  @apply invisible -ml-[1em] cursor-pointer pl-[1em];
+}
+
+.prose .anchor:before {
+  @apply absolute -ml-[1em] text-zinc-300 content-['#'] dark:text-zinc-700;
+}
+
+.prose *:hover > .anchor {
+  @apply visible;
+}
+
+/* rehype */
+pre {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+pre::-webkit-scrollbar {
+  display: none;
+}
+
+code[class*='language-'],
+pre[class*='language-'] {
+  @apply text-zinc-800 dark:text-zinc-50;
+}
+
+.prose pre {
+  @apply border border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900;
+}
+
+.prose code {
+  @apply rounded-lg border border-zinc-100 bg-zinc-50 px-1 py-0.5 text-zinc-800 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-200;
+}
+
+.prose pre code {
+  @apply p-0 text-zinc-800 dark:text-zinc-200;
+  border: initial;
+}
+
+.prose > :first-child {
+  /* Override removing top margin, causing layout shift */
+  margin-top: 1.25em !important;
+  margin-bottom: 1.25em !important;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  @apply italic text-zinc-400 dark:text-zinc-500;
+}
+
+.token.punctuation {
+  @apply text-zinc-700 dark:text-zinc-300;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  @apply text-green-500 dark:text-green-400;
+}
+
+.token.deleted {
+  @apply italic;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  @apply text-purple-500 dark:text-purple-400;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  @apply text-teal-500 dark:text-teal-400;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  @apply text-rose-500 dark:text-rose-400;
+}
+
+.token.function,
+.token.class-name {
+  @apply text-pink-500 dark:text-pink-400;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  @apply text-yellow-500 dark:text-yellow-400;
+}
+
+.rehype-code-title {
+  @apply rounded-t-lg border border-b-0 border-zinc-200 bg-zinc-200 px-5 py-3 font-mono text-sm font-bold text-zinc-800 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-200;
+}
+
+.rehype-code-title + pre {
+  @apply mt-0 rounded-t-none;
+}
+
+/* code-highlight */
+.code-highlight {
+  @apply float-left min-w-full;
+}
+
+.code-line {
+  @apply -mx-4 block border-l-2 border-l-transparent px-4;
+}
+
+.code-line.inserted {
+  @apply bg-green-200/50 dark:bg-green-700/20; /* Set inserted line (+) color */
+}
+
+.code-line.deleted {
+  @apply bg-rose-300/50 dark:bg-rose-500/20; /* Set deleted line (-) color */
+}
+
+.highlight-line {
+  @apply -mx-4 border-l-2 border-l-sky-400 bg-zinc-200/50 dark:border-l-sky-500 dark:bg-zinc-700/40;
+}
+
+.line-number::before {
+  @apply mr-4 -ml-2 inline-block w-4 text-right text-zinc-400 content-[attr(line)] dark:text-zinc-500;
+}
