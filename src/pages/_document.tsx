@@ -47,7 +47,7 @@ class Document extends NextDocument {
             <script
               async
               defer
-              data-website-id="2c98cf64-36fa-4d17-a62a-e26b27e34d9e"
+              data-website-id="658313e4-5b59-43e2-bd39-a7f490e907bc"
               data-do-not-track="true"
               src="https://u.opkhls.dev/umami.js"
             />
