@@ -1,0 +1,78 @@
+---
+title: 'Kenyamanan'
+publishedAt: '2021-03-05'
+summary: 'Mengoptimalkan penggunaan sebuah perangkat lebih produktif dengan Sistem Operasi'
+---
+
+Saya sering kali bertanya-tanya atas banyaknya Distribusi Linux (dibaca: Distro) yang beredar, jumlahnya sangat banyak! Daftarnya bisa dilihat [di sini](https://distrowatch.com/dwres.php?resource=popularity).
+
+Kenapa banyak Pengembang begitu antusias mengalokasikan waktunya untuk membuat Distro yang terkadang terlihat serupa dengan yang sudah ada sebelumnya, hanya wallpaper yang bertuliskan "Nama si Distro" dan "Logo" di atasnya yang menjadikannya berdeda. Oke kalimat terkahir ini bercanda.
+
+Karena pemikiran tersebut membebankan otak saya, maka saya pun menjadi [Distro Hopping](https://embeddedinventor.com/distro-hopping-what-why-how-explained/) hanya untuk ~~memenuhi hasrat~~ mencoba dan merasakannya secara langsung. Cukup lama saya berada dalam fase ini yang bahkan sempat merasakan yang namanya [Rabbit Hole](https://www.dictionary.com/e/slang/rabbit-hole/).
+
+## Titik Terang
+
+Saya pikir saya sudah bisa mengakhirinya dan sudah seharusnya untuk melakukan hal-hal lebih baik dari sekedar _burn ISO_ kedalam USB Drive. Hasil pengalaman dari ketidaksetiaan tersebut pada akhirnya cukup mengesalkan. Meskipun harus saya akui, awalnya memang indah seperti yang banyak orang bilang haha.
+
+Dan sekarang, saya rasa sudah cukup paham dan mengerti alasan tetap bermunculannya Distro baru. Karena Sistem Operasi menjadi peran utama dalam interaksi manusia dengan sebuah program yang akan dijalankan, dalam hal ini adalah Komputer. Dan Sistem Operasi juga yang nantinya akan menciptakan arti kebebasan dan kenyamanan untuk pengguna, bahkan dalam kasus tertentu Sistem Operasi menjadi sesuatu yang sangat personal—terpasang beberapa program dan hanya si pemilik yang bisa mengoperasikannya.
+
+Dan hal tersebut menjadi topik tulisan ini. Ricing!
+
+## Arch?
+
+Saya setuju turuan Debian (atau spesifiknya Ubuntu) adalah pilihan terbaik apabila menginginkan Distro dengan _hardware compability_ yang hampir tidak ada masalah, tampilan _user-friendly_, dan segalanya sudah disiapkan matang-matang oleh Distributor. Jagoan saya dulu adalah Linux Mint XFCE, semuanya hampir tidak ada kendala teknis yang saya temukan disana. Dan saya sangat merekomendasikan kamu untuk menggunakan Distro tersebut jika memang ingin ~~murtad~~ pindah dari Windows.
+
+Terlepas dari mantapnya Debian, bukan berarti semuanya akan baik-baik saja bagi pengguna, terutama saya. Banyak ketidakpuasan dan hal-hal sepele yang membuat saya tidak nyaman, mulai dari aplikasi yang tidak tersedia dan mengharuskan saya meng-_compile_ sendiri hingga pada saat penggunaan cukup kompleks (mengerjakan banyak pekerjaan dalam satu waktu) yang sangat membebani Memori dan CPU hingga mengakibatkan si Komputer menjadi sangat lambat.
+
+> salahnya emang di komputer yang kentang, tapi bukan berarti harus menghakiminya dan meningkatkan hardware gitu aja, benar?
+
+[AUR Package](https://aur.archlinux.org/) adalah alasan kenapa [Arch](https://archlinux.org/) menjadi Distro terbaik versi saya (saat ini). karena hampir semua program tersedia di sana tanpa harus susah payah _compile_ manual haha.
+
+Saya memilih [Archlabs](https://archlabslinux.com/) untuk dipasangkan di Komputer kentang ini, dan hmm sepertinya semua pengguna Linux tau alasan kenapa lebih memilih turunannya alih-alih Arch itu sendiri (kecuali CLI Guys). Saya dengan sengaja tetap menggunakan Systemd dibandingkan dengan Runit/openRC yang kembali ramai dibicarakan oleh teman-teman [~/.dotfiles](https://t.me/dotfiles_id), karena tidak ada alasan khusus untuk saya menggunakannya. Dan (lagi) saya tidak ingin dipusingkan oleh masing-masing init systems yang tidak cukup familiar bagi saya sendiri.
+
+## Window Manager
+
+Saya tidak ingin membahas panjang lebar definisi teknis seperti "Apa itu Window Manager?" atau "Apa keterkaitan Sistem Operasi dengan Window Manager?" ke dalam tulisan ini. Jika kamu peduli dan penasaran dengan istilah tersebut, saya sarankan kamu untuk terlebih dahulu membaca tulisan yang sudah disediakan oleh [Arch Wiki](https://wiki.archlinux.org/title/Window_manager).
+
+Untuk WM saya percayakan kepada [i3wm](https://i3wm.org/). Dan _out of the box_, i3wm ini sudah _pre-installed_ pada Archlabs. Hal sepele tapi banyak menghemat waktu dan memudahkan bagi saya karena terdapat konfigurasi yang sudah diterapkan pada sistem yang mudah dipahami.
+
+Dan yang terpenting, i3wm ini tidak haus _resources_. Ya. Ringan. **Sangat Ringan**.
+
+```
+Private  +   Shared  =  RAM used       Program
+ 4.8 MiB +   6.7 MiB =  11.6 MiB       i3
+```
+
+## Workflows
+
+Sejauh ini saya sangat nyaman dengan setup saat ini, tentu saja semua ini berkat i3wm dengan _tiling magic_-nya yang benar-benar magic.
+Dengan 9 workspace yang tersedia, saya bisa mengatur masing-masing workspace sesuai dengan pekerjaan spesifik.
+
+<Img src={`/images/kenyamanan/workspace-1.jpg`} width={1366} height={768} />
+
+Berikut workspace desktop yang saya terapkan :
+
+- **Workspace 1**, semua pekerjaan yang hanya dapat diakses oleh terminal.
+- **Workspace 2**, tempat saya menulis kode. Dalam hal ini saya (masih) menggunakan vscode sebagai IDE atau teks editor atau apalah kamu menyebutnya meskipun sudah terpasangnya Neo(VIM)
+- **Workspace 3**, tempat berjalannya peramban Firefox, saya biarkan lokasinya berdekatan dengan Terminal dan IDE agar memudahkan untuk berganti Workspace.
+- **Workspace 4**, tempat dimana file manager berada, saya tidak bisa setiap saat menggunakan file manager CLI seperti [nnn](https://github.com/jarun/nnn) untuk kepoin berkas-berkas—yang walaupun direktori drive saya terbilang cukup rapih.
+- **Workspace 5**, seringnya digunakan untuk nonton film atau membaca ebook dengan [Zathura](https://pwmt.org/projects/zathura/).
+- **Workspace 6**, walau jarang sekali membuka aplikasi chat selain watsap, tapi saya biasanya buka Telegram atau Discord di space ini.
+- **Workspace 7** dan **8**, digunakan hanya ketika dual monitor, entah itu membuka Browser (lagi) untuk melakukan _debugging_ atau _code review_. Selain hal-hal tersebut, entah untuk apa saya sampai membuka 9 workspace sekaligus haha.
+- **Workspace 9**, untuk Spotify, salah satu aplikasi yang wajib ada di desktop. saya bisa mendengarkan musik hingga ~5 jam perharinya haha.
+
+## F\*ckin Keybinds
+
+Keybind atau keyboard shortcut menjadi kunci utama dalam Window Manager. Karena banyak hal-hal dasar yang tidak bisa dilakukan oleh mouse pada umumnya dan hanya menerima perintah-perintah dari keyboard shortcut saja. Sebagai contoh saya akan ilustrasikan dengan gambar diatas, kalau diperhatikan baik-baik dari ketiga terminal—yang menjalankan [fet.sh](https://github.com/6gk/fet.sh), [cava - Audio Visualizer](https://github.com/karlstav/cava), dan compile next.js project—tidak memiliki tombol/icon _minimize_, _maximize_, ataupun _close_ bukan? Disinilah keybind bekerja untuk menggantikan tugasnya.
+
+Semua keybind terkait pengoperasian Window Manager berpusat pada tombol <kbd>super</kbd> (dikenal juga sebagai <kbd>windows</kbd>) agar tidak terjadi konflik dengan keybind dari aplikasi pihak ketiga yang kebanyakan menggunakan <kbd>ctrl</kbd>. Kembali ke permasalahan diatas, untuk menutup sebuah aplikasi saya hanya cukup mengkombinasikan antara <kbd>super</kbd>+<kbd>C</kbd> atau berpindah antar workspace 1 hingga 9 dengan menekan <kbd>super</kbd>+(<kbd>1</kbd> s/d <kbd>9</kbd>), praktis? Tentu saja.
+
+## What's next?
+
+Baru 3 bulan semenjak saya menggunakan i3wm, dan sedikit demi sedikit kembali tergarami oleh _show off_ setup teman-teman ~/.dotfiles dengan window manager dwm/awesome yang digunakannya, juga Runit sebagai init system yang "katanya" tidak _bloated_, kedua hal tersebut berhasil membuat saya ingin mengeksplor lebih dekat.
+
+Berpikir untuk mencoba? Tentu tidak. i3wm masih terasa powerfull dengan kebutuhan saya saat ini.
+
+Dan pastinya masih banyak yang perlu saya eksplor untuk terus meningkatkan produktivitas yang hakiki dengan Window Manager bernama i3, bukan?
+
+Terima kasih sudah mampir.
