@@ -18,15 +18,15 @@ export function CommandBar() {
   return (
     <KBarPortal>
       <KBarPositioner className="bg-black/30 backdrop-blur-sm dark:bg-black/50">
-        <KBarAnimator className="w-full max-w-md rounded-lg bg-white shadow-xl dark:bg-zinc-900">
-          <div className="flex items-center justify-between p-4">
-            <KBarSearch className="w-full border-0 bg-transparent text-sm focus:outline-none" />
+        <KBarAnimator className="w-full max-w-lg rounded-lg border bg-white shadow-xl dark:border-zinc-700 dark:bg-zinc-900">
+          <div className="mb-1.5 flex items-center justify-between border-b p-4 dark:border-zinc-700">
+            <KBarSearch className="w-full border-none bg-transparent text-sm focus:outline-none" />
             <button
               onClick={query.toggle}
               className={cn(
-                'rounded border border-zinc-500/30 p-1 text-[10px] font-medium transition duration-300',
-                'hover:shadow-lg focus:border-sky-500/30 focus:outline-none',
-                'dark:border-zinc-400/40 dark:focus:border-sky-400/40'
+                'rounded border border-zinc-500/30 py-1 px-1.5 text-[10px] font-medium transition duration-300',
+                'focus:outline-none focus:ring-1 focus:ring-zinc-300',
+                'dark:border-zinc-700 dark:focus:ring-zinc-500'
               )}
             >
               ESC

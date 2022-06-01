@@ -29,7 +29,7 @@ const App = ({ Component, pageProps }: AppProps) => {
     },
     {
       id: 'navigate-blog',
-      name: 'Tulisan',
+      name: 'Writings',
       keywords: 'blog posts',
       shortcut: ['g', 'b'],
       icon: <Pencil />,

@@ -14,7 +14,7 @@ export function useThemeAction() {
   useRegisterActions([
     {
       id: 'theme',
-      name: 'Ubah Tema...',
+      name: 'Change theme...',
       keywords: 'change-theme',
       shortcut: ['g', 't'],
       section: sections.extras,
@@ -22,21 +22,21 @@ export function useThemeAction() {
     },
     {
       id: 'dark-mode',
-      name: 'Gelap',
+      name: 'Dark',
       keywords: 'dark',
       perform: () => setTheme('dark'),
       parent: parents.theme
     },
     {
       id: 'light-mode',
-      name: 'Terang',
+      name: 'Light',
       keywords: 'light',
       perform: () => setTheme('light'),
       parent: parents.theme
     },
     {
       id: 'theme-system',
-      name: 'Default',
+      name: 'System',
       keywords: 'system',
       perform: () => setTheme('system'),
       parent: parents.theme

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import cn from 'classnames';
 import { ActionImpl, ActionId } from 'kbar';
 
@@ -32,9 +32,9 @@ export const ResultItem = React.forwardRef(
       <div
         ref={ref}
         className={cn(
-          'flex items-center justify-between rounded p-2 text-sm font-medium',
+          'flex items-center justify-between rounded-md px-2 py-3 text-sm font-medium',
           {
-            'cursor-pointer bg-sky-500/20 dark:bg-sky-400/30': active
+            'cursor-pointer bg-zinc-100/75 dark:bg-zinc-500/10': active
           }
         )}
       >
