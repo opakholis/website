@@ -1,0 +1,84 @@
+---
+title: 'Netlify sebagai Pemendek Tautan'
+publishedAt: '2021-08-10'
+summary: 'Menjadikan Netlify Redirects sebagai layanan URL Shortener pribadi'
+---
+
+Saya memang jarang sekali membagikan tautan ke orang lain, tapi dalam situasi tertentu saya pikir perlu melakukannya untuk menjadikan tautan menjadi _readable_, dan thanks to [bit.ly](https://bitly.com/) dengan cara kerjanya yang berhasil membuat tautan lebih manusiawi dan mudah diingat.
+
+Tapi dalam prosesnya untuk mewujudkan hal tersebut tidaklah sepenuhnya praktis. Ya, lumayan.. Ribet! terutama bagi saya sendiri.
+
+Oke ini hanya alasan, tapi tidak semuanya tidak benar.
+
+## Redirects
+
+Cara kerja URL shortener sebenarnya sederhana, menerima tautan yang diterima dari pengguna lalu disimpan ke dalam database server sebelum tautan tersebut di-encode dan dikembalikan ke pengguna lagi dalam bentuk tautan yang lebih pendek. Hanya itu, dan sesederhana itu.
+
+<Img src={`/images/shortener/flowchart.png`} width={3334 / 2} height={1784 / 2}>
+  URL Shortening 101: How It Works — Bit.ly
+</Img>
+
+Dan baru-baru ini saya menemukan fitur menarik dari [Netlify](https://www.netlify.com/) dan fitur ini dapat digunakan untuk menggantikan _\*ehm_ bit.ly, terlebih cara kerja dari [Netlify \_redirects](https://docs.netlify.com/routing/redirects) ini jauh lebih praktis.
+
+## Setup
+
+Sebagai seorang pemrogram melakuan setup environment merupakan hal yang lumrah, dan untuk setup kali ini sebenarnya akun Netlify saja sudah cukup, Tapi karena saya ingin memanfaatkan [Continous Deployment](https://docs.netlify.com/site-deploys/create-deploys/#deploy-with-git) untuk memaksimalkan hasil akhir maka diperlukan juga akun Github dan perangkat yang terintegrasi dengan Git.
+
+Pertama-pertama sudah pasti harus membuat repositori baru yang bahkan sekarang sudah bisa melalui [CLI](https://cli.github.com/) dengan perintah `gh repo create` dan menambahkan file _"\_redirects"_. File ini digunakan untuk menyimpan tautan-tautan yang nantinya akan dieksekusi oleh Netlify. Sebagai contoh saya sudah menambahkan beberapa tautan didalamnya.
+
+```shell:_redirects
+# daftar tuatan
+/github    https://github.com/opakholis
+/twitter   https://twitter.com/opakholis
+
+
+
+# fallback
+# berguna apabila tautan yang dimasukkan salah
+# maka akan dialihkan ke tautan default
+/*         https://opakholis.space
+```
+
+Dan ya, tentu repositori tersebut harus saya deploy, sekali lagi ini bisa dilakukan melalui [Netlify CLI](https://cli.netlify.com/) dengan perintah `netlify init`.
+
+Maka setelah deploy berhasil maka akan men-generate folder ".netlify" dan file ".gitignore" seperti ini:
+
+```shell {3-4}
+Size   Name
+   -   .git
+  32   .gitignore
+   -   .netlify
+ 162   _redirects
+```
+
+Sebenarnya sampai langkah ini sudah siap digunakan, hanya saja masih menggunakan sub-domainnya milik Netlify. Maka dari itu saya perlu [konfigurasi DNS](https://docs.netlify.com/domains-https/custom-domains/) untuk menggunakan custom domain sendiri. Sebagai perbandingan fitur custom domain pada Bit.ly hanya dapat digunakan jika saya membayar paling tidak semurah-murahnya $29/bulan. hmm is it worth it for personal use?
+
+Oke mari cek masing-masing hasil tautan yang baru saja dibuat:
+
+1. [opkhls.dev/github](https://opkhls.dev/github)
+2. [opkhls.dev/twitter](https://opkhls.dev/twitter)
+3. [opkhls.dev/gu3GanteNg](https://opkhls.dev/gu3GanteNg) — ehm
+
+Dan karena tautan dengan `/gu3GanteNg` tidak ditemukan pada file _\_redirects_ maka secara otomatis akan dialihkan ke tautan default (fallback) yang mana sudah saya atur untuk mengarahkannya ke [https://opakholis.space](/).
+
+## Otomasi?
+
+Membosankan sekali apabila ingin menambah tautan baru jika prosesnya seperti ini:
+
+1. Cari direktori yang tersimpannya file \_redirects
+2. Buka file \_redirects
+3. Tambah tautan baru
+4. `git commit -am "nyenyenye" && git push`
+
+Praktis? Belum. Oleh karenanya, saya sederhanakan dengan menggunakan bantuan [package ini](https://www.npmjs.com/package/netlify-shortener).
+
+Setelahnya jika ingin perpendek tautan baru maka saya hanya perlu menggunakan perintah `pnpm shorten oku.club/user/opakholis oku`, menghilangkan 3 langkah yang membosankan. Lebih praktis, benar?
+
+## Penutup
+
+Jika kamu seorang ..ehm CLI guy, perlu custom domain dan tidak mempermasalahkan statistik tautan, saya pikir kamu harus mempertimbangkan si [redirects](https://docs.netlify.com/routing/redirects) ini. Dan untuk personal branding menurut saya ini oke juga haha.
+
+### Referensi
+
+- https://github.com/kentcdodds/netlify-shortener
+- https://docs.netlify.com/routing/redirects
