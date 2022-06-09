@@ -58,7 +58,7 @@ const App = ({ Component, pageProps }: AppProps) => {
       keywords: 'go-polywork',
       section: sections.social,
       icon: <Polywork />,
-      perform: () => window.open('https://polywork.com/opakholis', '_blank')
+      perform: () => window.open('https://poly.work/opakholis', '_blank')
     }
   ];
 

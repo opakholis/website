@@ -68,7 +68,7 @@ export function Introduction() {
             icon={<Github />}
           />
           <Contact
-            href="https://polywork.com/opakholis"
+            href="https://poly.work/opakholis"
             title="Polywork"
             className={cn(
               `bg-indigo-500 dark:bg-indigo-400`,
