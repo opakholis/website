@@ -1,6 +1,6 @@
 import { InferGetStaticPropsType } from 'next';
 import { allBlogs } from 'contentlayer/generated';
-import { pick } from 'contentlayer/client';
+import { pick } from 'contentlayer/utils';
 
 import { Layout } from '~/components/layouts';
 import { BlogPostPreview } from '~/components/sections/BlogPostPreview';
