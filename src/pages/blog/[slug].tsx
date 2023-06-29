@@ -1,4 +1,4 @@
-import type { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
 
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import { allBlogs, Blog } from 'contentlayer/generated';

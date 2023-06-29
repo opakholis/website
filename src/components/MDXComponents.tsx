@@ -1,8 +1,6 @@
 import * as React from 'react';
-import NextLink from 'next/link';
-
-import type { ImageProps } from 'next/image';
-
+import Link from 'next/link';
+import { ImageProps } from 'next/image';
 import { BlurImage } from '~/components/BlurImage';
 
 export const components = {
@@ -23,11 +21,7 @@ export const components = {
         />
       );
     }
-    return (
-      <NextLink href={href} passHref>
-        <a className="link" {...props} />
-      </NextLink>
-    );
+    return <Link href={href} passHref className="link" {...props} />;
   },
   Img: ({ children, ...props }: { children: React.ReactNode } & ImageProps) => {
     return (

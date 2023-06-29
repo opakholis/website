@@ -29,10 +29,11 @@ export default function Error() {
         <p className="leading-lose mb-4">
           Thanks for stopping on my site by the way. Have a noice day.
         </p>
-        <Link href="/">
-          <a className="rounded-md bg-zinc-300/80 p-2 px-4 text-sm text-zinc-800 transition duration-300 hover:bg-zinc-200 focus:outline-none focus:ring-1 focus:ring-zinc-600 focus:ring-offset-2 focus:ring-offset-white dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-700/50 dark:focus:ring-zinc-500 dark:focus:ring-offset-zinc-900">
-            Kembali
-          </a>
+        <Link
+          href="/"
+          className="rounded-md bg-zinc-300/80 p-2 px-4 text-sm text-zinc-800 transition duration-300 hover:bg-zinc-200 focus:outline-none focus:ring-1 focus:ring-zinc-600 focus:ring-offset-2 focus:ring-offset-white dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-700/50 dark:focus:ring-zinc-500 dark:focus:ring-offset-zinc-900"
+        >
+          Kembali
         </Link>
       </main>
     </>
